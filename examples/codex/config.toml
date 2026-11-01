@@ -1,0 +1,13 @@
+# Merge into your project's .codex/config.toml. Build the local checkout first.
+# Use absolute paths; MCP hosts need not start in the router's directory.
+[mcp_servers.agent_model_router]
+command = "node"
+args = ["/absolute/path/agent-model-router/dist/cli.js", "serve", "--config", "/absolute/path/agent-model-router/config/default.json"]
+startup_timeout_sec = 10
+tool_timeout_sec = 10
+
+# Optional defaults documented by current Codex. Check your installed version
+# before enabling these: older clients may reject or ignore unfamiliar keys.
+# [agents]
+# default_subagent_model = "gpt-6.1-sol"
+# default_subagent_reasoning_effort = "medium"

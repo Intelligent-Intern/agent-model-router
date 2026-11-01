@@ -1,0 +1,14 @@
+[
+  {"task":"Fix a typo in the README","priority":"cost"},
+  {"task":"Add unit tests for a small validation helper","priority":"cost"},
+  {"task":"Implement a JSON parser with validation","priority":"balanced"},
+  {"task":"Fix a responsive CSS layout in Vue","priority":"speed"},
+  {"task":"Refactor authentication across a monorepo","priority":"balanced"},
+  {"task":"Find potential race conditions in this codebase","context":"TypeScript backend, distributed workers","priority":"quality"},
+  {"task":"Debug a production outage caused by a deadlock","context":"Concurrent workers across multiple services","priority":"balanced"},
+  {"task":"Review security and authorization for injection vulnerabilities","priority":"quality"},
+  {"task":"Design a distributed consensus architecture and prove invariants","priority":"quality"},
+  {"task":"Review a database migration across multiple services for data loss","priority":"balanced"},
+  {"task":"Write API documentation for a simple feature","priority":"speed"},
+  {"task":"Please help with this unspecified request","priority":"balanced"}
+]

@@ -1,0 +1,475 @@
+{
+  "schema_version": 1,
+  "registry_version": "2026-11-01.example.1",
+  "effort_order": [
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+    "max",
+    "ultra"
+  ],
+  "models": [
+    {
+      "id": "gpt-6-luna",
+      "provider": "openai",
+      "available": true,
+      "reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "relative_cost": 1,
+      "relative_speed": 0.98,
+      "max_complexity": 0.55,
+      "capabilities": {
+        "general": 0.62,
+        "documentation": 0.85,
+        "testing": 0.68,
+        "frontend": 0.68,
+        "implementation": 0.65,
+        "refactoring": 0.59,
+        "debugging": 0.57,
+        "concurrency": 0.4,
+        "security": 0.42,
+        "architecture": 0.42
+      }
+    },
+    {
+      "id": "gpt-6.1-sol",
+      "provider": "openai",
+      "available": true,
+      "reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ],
+      "relative_cost": 3,
+      "relative_speed": 0.8,
+      "max_complexity": 0.85,
+      "capabilities": {
+        "general": 0.88,
+        "documentation": 0.92,
+        "testing": 0.9,
+        "frontend": 0.89,
+        "implementation": 0.92,
+        "refactoring": 0.89,
+        "debugging": 0.89,
+        "concurrency": 0.8,
+        "security": 0.81,
+        "architecture": 0.83
+      }
+    },
+    {
+      "id": "gpt-6.1-terra",
+      "provider": "openai",
+      "available": true,
+      "reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ],
+      "relative_cost": 3.5,
+      "relative_speed": 0.73,
+      "max_complexity": 0.95,
+      "capabilities": {
+        "general": 0.9,
+        "documentation": 0.87,
+        "testing": 0.93,
+        "frontend": 0.88,
+        "implementation": 0.94,
+        "refactoring": 0.96,
+        "debugging": 0.94,
+        "concurrency": 0.93,
+        "security": 0.91,
+        "architecture": 0.92
+      }
+    },
+    {
+      "id": "gpt-6-astra",
+      "provider": "openai",
+      "available": true,
+      "reasoning_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
+      ],
+      "relative_cost": 6,
+      "relative_speed": 0.52,
+      "max_complexity": 1,
+      "capabilities": {
+        "general": 0.96,
+        "documentation": 0.94,
+        "testing": 0.96,
+        "frontend": 0.93,
+        "implementation": 0.96,
+        "refactoring": 0.96,
+        "debugging": 0.98,
+        "concurrency": 0.99,
+        "security": 0.98,
+        "architecture": 0.99
+      }
+    }
+  ],
+  "classification": {
+    "default_category": "general",
+    "categories": [
+      {
+        "id": "general",
+        "description": "General coding work",
+        "signals": []
+      },
+      {
+        "id": "documentation",
+        "description": "Documentation and small text changes",
+        "signals": [
+          {
+            "phrases": [
+              "readme",
+              "documentation",
+              "docstring",
+              "comment",
+              "docs"
+            ],
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "id": "testing",
+        "description": "Test design and implementation",
+        "signals": [
+          {
+            "phrases": [
+              "unit test",
+              "unit tests",
+              "test coverage",
+              "integration test",
+              "regression test",
+              "tests"
+            ],
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "id": "frontend",
+        "description": "Frontend implementation and accessibility",
+        "signals": [
+          {
+            "phrases": [
+              "css",
+              "vue",
+              "react",
+              "frontend",
+              "layout",
+              "accessibility",
+              "responsive"
+            ],
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "id": "implementation",
+        "description": "Feature implementation",
+        "signals": [
+          {
+            "phrases": [
+              "implement",
+              "add endpoint",
+              "feature",
+              "parser",
+              "validation",
+              "api"
+            ],
+            "weight": 1.5
+          }
+        ]
+      },
+      {
+        "id": "refactoring",
+        "description": "Refactoring across code boundaries",
+        "signals": [
+          {
+            "phrases": [
+              "refactor",
+              "migrate",
+              "migration",
+              "rename",
+              "extract"
+            ],
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "id": "debugging",
+        "description": "Root-cause analysis and debugging",
+        "signals": [
+          {
+            "phrases": [
+              "debug",
+              "bug",
+              "crash",
+              "memory leak",
+              "deadlock",
+              "race condition"
+            ],
+            "weight": 2
+          }
+        ]
+      },
+      {
+        "id": "concurrency",
+        "description": "Concurrency and distributed-system analysis",
+        "signals": [
+          {
+            "phrases": [
+              "race conditions",
+              "race condition",
+              "distributed",
+              "concurrency",
+              "concurrent",
+              "deadlock",
+              "linearizability",
+              "exactly once"
+            ],
+            "weight": 4
+          }
+        ]
+      },
+      {
+        "id": "security",
+        "description": "Security and trust-boundary review",
+        "signals": [
+          {
+            "phrases": [
+              "security",
+              "vulnerability",
+              "authentication",
+              "authorization",
+              "injection",
+              "cryptography"
+            ],
+            "weight": 3
+          }
+        ]
+      },
+      {
+        "id": "architecture",
+        "description": "System architecture and complex design",
+        "signals": [
+          {
+            "phrases": [
+              "architecture",
+              "architect",
+              "design a",
+              "redesign",
+              "distributed consensus",
+              "multi tenant",
+              "data model"
+            ],
+            "weight": 2.5
+          }
+        ]
+      }
+    ]
+  },
+  "complexity": {
+    "baseline": 0.25,
+    "signals": [
+      {
+        "id": "simple",
+        "phrases": [
+          "typo",
+          "small",
+          "simple",
+          "single file",
+          "only change",
+          "one line"
+        ],
+        "weight": -0.15
+      },
+      {
+        "id": "distributed",
+        "phrases": [
+          "distributed",
+          "concurrency",
+          "concurrent",
+          "race condition",
+          "race conditions",
+          "deadlock"
+        ],
+        "weight": 0.3
+      },
+      {
+        "id": "cross-cutting",
+        "phrases": [
+          "codebase",
+          "across",
+          "monorepo",
+          "multi tenant",
+          "multiple services",
+          "system wide"
+        ],
+        "weight": 0.15
+      },
+      {
+        "id": "reasoning",
+        "phrases": [
+          "prove",
+          "formal",
+          "invariant",
+          "cryptography",
+          "consensus",
+          "linearizability"
+        ],
+        "weight": 0.25
+      },
+      {
+        "id": "high-impact",
+        "phrases": [
+          "security",
+          "authentication",
+          "authorization",
+          "data loss",
+          "production outage",
+          "payment"
+        ],
+        "weight": 0.2
+      },
+      {
+        "id": "design",
+        "phrases": [
+          "architecture",
+          "redesign",
+          "migration",
+          "data model"
+        ],
+        "weight": 0.15
+      }
+    ]
+  },
+  "policies": {
+    "quality": {
+      "weights": {
+        "quality": 0.9,
+        "speed": 0.05,
+        "cost": 0.05
+      },
+      "min_quality": 0.5,
+      "complexity_quality_bonus": 0.35,
+      "complexity_weight_bonus": 0.4,
+      "efforts": [
+        {
+          "through": 0.3,
+          "effort": "medium"
+        },
+        {
+          "through": 0.6,
+          "effort": "high"
+        },
+        {
+          "through": 0.85,
+          "effort": "xhigh"
+        },
+        {
+          "through": 1,
+          "effort": "max"
+        }
+      ]
+    },
+    "balanced": {
+      "weights": {
+        "quality": 0.6,
+        "speed": 0.2,
+        "cost": 0.2
+      },
+      "min_quality": 0.4,
+      "complexity_quality_bonus": 0.4,
+      "complexity_weight_bonus": 0.4,
+      "efforts": [
+        {
+          "through": 0.3,
+          "effort": "low"
+        },
+        {
+          "through": 0.55,
+          "effort": "medium"
+        },
+        {
+          "through": 0.8,
+          "effort": "high"
+        },
+        {
+          "through": 1,
+          "effort": "xhigh"
+        }
+      ]
+    },
+    "speed": {
+      "weights": {
+        "quality": 0.2,
+        "speed": 0.7,
+        "cost": 0.1
+      },
+      "min_quality": 0.35,
+      "complexity_quality_bonus": 0.4,
+      "complexity_weight_bonus": 0.4,
+      "efforts": [
+        {
+          "through": 0.5,
+          "effort": "low"
+        },
+        {
+          "through": 0.8,
+          "effort": "medium"
+        },
+        {
+          "through": 1,
+          "effort": "high"
+        }
+      ]
+    },
+    "cost": {
+      "weights": {
+        "quality": 0.2,
+        "speed": 0.05,
+        "cost": 0.75
+      },
+      "min_quality": 0.35,
+      "complexity_quality_bonus": 0.4,
+      "complexity_weight_bonus": 0.4,
+      "efforts": [
+        {
+          "through": 0.5,
+          "effort": "low"
+        },
+        {
+          "through": 0.8,
+          "effort": "medium"
+        },
+        {
+          "through": 1,
+          "effort": "high"
+        }
+      ]
+    }
+  },
+  "fallback": {
+    "model": "gpt-6.1-sol",
+    "effort": "medium"
+  }
+}

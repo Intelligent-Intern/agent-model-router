@@ -1,0 +1,68 @@
+{
+  "name": "agent-model-router",
+  "version": "0.1.0",
+  "description": "Local, deterministic model and reasoning-effort recommendations for agent orchestrators",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "agent-model-router": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp.d.ts",
+      "import": "./dist/mcp.js"
+    },
+    "./config/default.json": "./config/default.json"
+  },
+  "files": [
+    "dist",
+    "config",
+    "examples",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src tests",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "check": "npm run lint && npm run typecheck && npm test",
+    "demo": "npm run build && node examples/demo.mjs",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "codex",
+    "agents",
+    "model-routing",
+    "local-first"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Intelligent-Intern/agent-model-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Intelligent-Intern/agent-model-router/issues"
+  },
+  "homepage": "https://github.com/Intelligent-Intern/agent-model-router#readme",
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@modelcontextprotocol/client": "^2.4.0",
+    "@types/node": "^22.20.5",
+    "eslint": "^9.39.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1"
+  }
+}
