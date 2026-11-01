@@ -8,6 +8,48 @@ No API key, inference request, account lookup, telemetry or routing fee. Models,
 capability ratings, relative cost/speed, availability and policies live in JSON.
 MIT licensed. Requires Node.js 22 or newer.
 
+## How it works
+
+```mermaid
+flowchart TB
+    Task["Task + context + priority"] --> Orchestrator["Codex orchestrator"]
+    Orchestrator --> Tool["MCP tool: select_model"]
+
+    subgraph Router["Local model router · no inference calls"]
+        Tool --> Analyze["Classify task and estimate complexity"]
+        Analyze --> Rank["Rank available models using the selected policy"]
+        Registry[("JSON registry<br/>Models · capabilities · cost · speed<br/>Availability · policies · supported efforts")]
+        Registry -.-> Analyze
+        Registry -.-> Rank
+        Rank --> Effort["Choose a supported reasoning effort"]
+        Effort --> Result["Recommendation<br/>Model + effort + confidence + reason"]
+    end
+
+    Result --> Supported{"Host supports<br/>the recommended pair?"}
+    Supported -- Yes --> Apply["Orchestrator uses the recommended configuration"]
+    Supported -- No --> Default["Orchestrator uses its default configuration"]
+    Tool -. Routing error .-> Default
+    Apply --> Agent["Orchestrator creates the subagent"]
+    Default --> Agent
+
+    classDef input fill:#164e63,stroke:#22d3ee,color:#fff,stroke-width:2px;
+    classDef routing fill:#312e81,stroke:#a5b4fc,color:#fff,stroke-width:2px;
+    classDef config fill:#78350f,stroke:#fbbf24,color:#fff,stroke-width:2px;
+    classDef decision fill:#701a75,stroke:#f0abfc,color:#fff,stroke-width:2px;
+    classDef result fill:#14532d,stroke:#4ade80,color:#fff,stroke-width:2px;
+    classDef fallback fill:#7c2d12,stroke:#fb923c,color:#fff,stroke-width:2px;
+    class Task,Orchestrator input;
+    class Tool,Analyze,Rank,Effort routing;
+    class Registry config;
+    class Supported decision;
+    class Result,Apply,Agent result;
+    class Default fallback;
+    style Router fill:#0f172a,stroke:#94a3b8,color:#fff,stroke-width:2px;
+```
+
+**Purple:** local routing. **Amber:** configuration. **Green:** recommendation
+and orchestrator action. **Orange:** fallback. Only the orchestrator creates agents.
+
 ## Run locally
 
 ```sh
